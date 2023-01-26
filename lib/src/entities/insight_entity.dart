@@ -1,8 +1,3 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-
-part 'insight_entity.freezed.dart';
-part 'insight_entity.g.dart';
-
 /// Insight entity
 /// [title] Insight title
 /// [value] Insight value
@@ -16,19 +11,48 @@ part 'insight_entity.g.dart';
 ///   icon: '🚀',
 /// );
 /// ```
-@freezed
-class InsightEntity with _$InsightEntity {
+class InsightEntity {
   /// Creates a new instance of [InsightEntity]
-  @Assert(
-    'value is int || value is String || value is bool',
-    'value should be int, string or bool',
-  )
-  factory InsightEntity({
-    required String title,
-    required dynamic value,
-    String? icon,
-  }) = _InsightEntity;
+  InsightEntity({
+    required this.title,
+    required this.value,
+    this.icon,
+  }) : assert(
+          value is int || value is String || value is bool,
+          'value should be int, string or bool',
+        );
 
-  /// Initializes a new instance of [InsightEntity] from JSON
-  factory InsightEntity.fromJson(Map<String, dynamic> json) => _$InsightEntityFromJson(json);
+  /// Insight title
+  /// Example: 'Insight title'
+  /// Required: true
+  /// Type: String
+  final String title;
+
+  /// Insight value
+  /// Example: 1
+  /// Required: true
+  /// Type: int, string or bool
+  /// Note: value should be int, string or bool
+  final dynamic value;
+
+  /// Insight icon
+  /// Example: '🚀'
+  /// Required: false
+  /// Type: String
+  /// Note: icon should be a single valid unicode emoji
+  /// See: https://unicode.org/emoji/charts/full-emoji-list.html
+  final String? icon;
+}
+
+/// Extension methods for [InsightEntity]
+/// [InsightEntity] to JSON
+extension InsightEntityExtension on InsightEntity {
+  /// Converts [InsightEntity] to JSON
+  Map<String, dynamic> toJson() {
+    return {
+      'title': title,
+      'value': value,
+      'icon': icon,
+    };
+  }
 }

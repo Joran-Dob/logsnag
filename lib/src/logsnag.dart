@@ -46,15 +46,17 @@ class LogSnag {
   LogSnag({
     required String project,
     required String token,
+    Client? httpClient,
   })  : _project = project,
         _token = token {
     _api = LogSnapApi(
-      httpClient: Client(),
+      httpClient: httpClient ?? Client(),
       project: _project,
       token: _token,
     );
   }
 
+  /// The LogSnag API client
   late LogSnapApi _api;
 
   /// The LogSnag project token
