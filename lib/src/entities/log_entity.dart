@@ -42,9 +42,6 @@ class LogEntity with _$LogEntity {
     String? parser,
   }) = _LogEntity;
 
-  /// Creates a new instance of [LogEntity] from JSON
-  factory LogEntity.fromJson(
-    Map<String, dynamic> json,
-  ) =>
-      _$LogEntityFromJson(json);
+  /// Initializes a new instance of [LogEntity] from JSON
+  factory LogEntity.fromJson(Map<String, dynamic> json) => _$LogEntityFromJson(json);
 }

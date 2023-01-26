@@ -1,7 +1,7 @@
 name: logsnag
 description: A Very Good Project created by Very Good CLI.
 version: 0.1.0+1
-publish_to: none
+repository: https://github.com/Joran-Dob/logsnag/
 
 environment:
   sdk: ">=2.18.0 <3.0.0"

@@ -112,7 +112,7 @@ class LogSnagApiException implements Exception {
     } catch (_) {
       // ignore
     }
-    return response?.body;
+    return null;
   }
 
   /// The error message from the server

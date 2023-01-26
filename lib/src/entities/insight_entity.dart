@@ -29,9 +29,6 @@ class InsightEntity with _$InsightEntity {
     String? icon,
   }) = _InsightEntity;
 
-  /// Creates a new instance of [InsightEntity] from JSON
-  factory InsightEntity.fromJson(
-    Map<String, dynamic> json,
-  ) =>
-      _$InsightEntityFromJson(json);
+  /// Initializes a new instance of [InsightEntity] from JSON
+  factory InsightEntity.fromJson(Map<String, dynamic> json) => _$InsightEntityFromJson(json);
 }
